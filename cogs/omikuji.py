@@ -21,7 +21,6 @@ class Omikuji(commands.Cog):
         result = random.choice(omikuji_results)
         author = ctx.message.author
         pfp = author.avatar.url
-        print(pfp)
         embed = discord.Embed(
             title=f'{ctx.author}の運勢', description=result, color=0x00b0f4)
         embed.set_thumbnail(url=pfp)

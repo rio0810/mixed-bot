@@ -2,16 +2,14 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import asyncio
-import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-json_file_path = 'data/config.json'
-with open(json_file_path, 'r') as json_file:
-    data = json.load(json_file)
-
-
-token = data['token']
-prefix = data['prefix']
+token = os.environ["DISCORD_TOKEN"]
+prefix = os.environ["PREFIX"]
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client=client)
